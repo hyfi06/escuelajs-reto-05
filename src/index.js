@@ -1,15 +1,14 @@
 const $app = document.getElementById('app');
 const $observe = document.getElementById('observe');
 const API = 'https://rickandmortyapi.com/api/character/';
-const API2 = 'https://us-central1-escuelajs-api.cloudfunctions.net/characters';
 const KEY_NEXT_FETCH = 'next_fetch';
 
 const cleanLocalStorage = function () {
-    localStorage.removeItem(KEY_NEXT_FETCH);
+  localStorage.removeItem(KEY_NEXT_FETCH);
 }
 
-const getData = api => {
-  fetch(api)
+const getData = async api => {
+  await fetch(api)
     .then(response => response.json())
     .then(response => {
       const characters = response.results;
